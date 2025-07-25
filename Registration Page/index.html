@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: Calibri, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      width: 100%;
+      background: linear-gradient(to bottom right, #ffffff, #f3f4f6);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    fieldset {
+      border: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    legend {
+      font-size: 1.4em;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    label {
+      margin-top: 15px;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 1em;
+      background-color: #fff;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    .gender-options,
+    .sports-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .gender-options label,
+    .sports-options label {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      width: 48%;
+      padding: 12px;
+      margin-top: 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"] {
+      background: linear-gradient(to right, #a8e063, #56ab2f);
+      color: #fff;
+    }
+
+    input[type="submit"]:hover {
+      background: linear-gradient(to right, #8bc34a, #388e3c);
+    }
+
+    input[type="reset"] {
+      background: linear-gradient(to right, #ff6e7f, #bfe9ff);
+      color: #333;
+    }
+
+    input[type="reset"]:hover {
+      background: linear-gradient(to right, #f44336, #e57373);
+      color: #fff;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    @media (max-width: 600px) {
+      input[type="submit"],
+      input[type="reset"] {
+        width: 100%;
+      }
+
+      .gender-options,
+      .sports-options {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <form>
+    <h1>Registration Form</h1>
+    <fieldset>
+      <legend>Personal Info:</legend>
+
+      <label for="name">Enter your Name:</label>
+      <input type="text" id="name" name="name" placeholder="Full Name" required>
+
+      <label for="email">Enter your Email ID:</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+      <label for="mobile">Enter Your Mobile Number:</label>
+      <input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile number" required pattern="[0-9]{10}">
+
+      <label for="rank">Enter your Rank:</label>
+      <input type="text" id="rank" name="rank" placeholder="Rank" required>
+
+      <label for="address">Enter your Address:</label>
+      <textarea id="address" name="address" rows="4" placeholder="Your full address..." required></textarea>
+
+      <label>Select your Gender:</label>
+      <div class="gender-options">
+        <label><input type="radio" id="male" name="gender" value="male" required>Male</label>
+        <label><input type="radio" id="female" name="gender" value="female">Female</label>
+      </div>
+
+      <label>Sports you like:</label>
+      <div class="sports-options">
+        <label><input type="checkbox" id="cricket" name="sports" value="cricket">Cricket</label>
+        <label><input type="checkbox" id="football" name="sports" value="football">Football</label>
+        <label><input type="checkbox" id="hockey" name="sports" value="hockey">Hockey</label>
+      </div>
+
+      <label for="dob">Select your Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required>
+
+      <label for="course">Choose Course:</label>
+      <select id="course" name="course" required>
+        <option value="">--Select--</option>
+        <option value="ai">AI</option>
+        <option value="ds">Data Science</option>
+        <option value="ml">Machine Learning</option>
+        <option value="wd">Web Development</option>
+        <option value="dl">Generative AI</option>
+        <option value="pe">Prompt Engineering</option>
+      </select>
+
+      <div class="form-actions">
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+      </div>
+
+    </fieldset>
+  </form>
+
+</body>
+</html>
