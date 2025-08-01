@@ -13,12 +13,6 @@ A modern and minimal login page built using **HTML** and **CSS**. The page featu
 ## Technologies Used  
 
 - **HTML5**  
-- **CSS3** (Flexbox, Gradient, Shadows)  
-
-## Project Structure  
-
-├── index.html # Main HTML file
-├── style.css # Styling for the login page
-└── README.md # Project documentation
+- **CSS3** (Flexbox, Gradient, Shadows)
 
 ![Login Page Screenshot](Screenshot.png)
