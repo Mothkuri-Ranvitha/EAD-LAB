@@ -1,0 +1,109 @@
+
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f0f0;
+    }
+    .calc {
+      width: 260px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.1);
+      overflow: hidden;
+      padding: 10px;
+    }
+    textarea {
+      width: 100%;
+      height: 60px;
+      font-size: 24px;
+      text-align: right;
+      padding: 10px;
+      box-sizing: border-box;
+      resize: none;
+      border: none;
+      background: #222;
+      color: #fff;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .pad {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    button {
+      padding: 15px;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      background: #eee;
+      cursor: pointer;
+    }
+    button:hover { background: #ddd; }
+    .op { background: #f9c74f; }
+    .eq { background: #90be6d; color: #fff; }
+    .danger { background: #f94144; color: #fff; }
+    .span-2 { grid-column: span 2; }
+  </style>
+</head>
+<body>
+  <form class="calc" onsubmit="event.preventDefault(); compute();">
+    <textarea id="expr">0</textarea>
+    <div class="pad">
+      <button type="button" onclick="clearAll()" class="danger">AC</button>
+      <button type="button" onclick="del()" class="danger">DEL</button>
+      <button type="button" onclick="append('%')" class="op">%</button>
+      <button type="button" onclick="append('/')" class="op">÷</button>
+
+      <button type="button" onclick="append('7')">7</button>
+      <button type="button" onclick="append('8')">8</button>
+      <button type="button" onclick="append('9')">9</button>
+      <button type="button" onclick="append('*')" class="op">×</button>
+
+      <button type="button" onclick="append('4')">4</button>
+      <button type="button" onclick="append('5')">5</button>
+      <button type="button" onclick="append('6')">6</button>
+      <button type="button" onclick="append('-')" class="op">−</button>
+
+      <button type="button" onclick="append('1')">1</button>
+      <button type="button" onclick="append('2')">2</button>
+      <button type="button" onclick="append('3')">3</button>
+      <button type="button" onclick="append('+')" class="op">+</button>
+
+      <button type="button" onclick="append('0')" class="span-2">0</button>
+      <button type="button" onclick="append('.')">.</button>
+      <button type="submit" class="eq">=</button>
+    </div>
+  </form>
+
+  <script>
+    const exprEl = document.getElementById('expr');
+
+    function render(value) {
+      exprEl.value = value || '0';
+    }
+    function clearAll() { render(''); }
+    function del() { render(exprEl.value.slice(0, -1)); }
+    function append(val) {
+      let current = exprEl.value === '0' ? '' : exprEl.value;
+      render(current + val);
+    }
+    function compute() {
+      try {
+        const result = Function('return ' + exprEl.value)();
+        render(String(result));
+      } catch {
+        render('Error');
+      }
+    }
+  </script>
+</body>
+</html>
