@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chessboard with Visible Pieces</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: white;
+    }
+
+    .chessboard {
+      display: grid;
+      grid-template-columns: repeat(8, 60px);
+      grid-template-rows: repeat(8, 60px);
+      border: 2px solid black;
+    }
+
+    .square {
+      width: 60px;
+      height: 60px;
+      font-size: 40px;
+      text-align: center;
+      line-height: 60px;
+      font-family: "Segoe UI Symbol", "Arial Unicode MS", serif;
+      user-select: none;
+    }
+
+    .white {
+      background-color: white;
+    }
+
+    .black {
+      background-color: black;
+    }
+
+    .white-piece {
+      color: white;
+    }
+
+    .black-piece {
+      color: black;
+    }
+
+    /* Outline or shadow around piece when on same color square, for visibility */
+    .outline-piece.white-piece {
+      text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+    }
+
+    .outline-piece.black-piece {
+      text-shadow:
+        -1px -1px 0 white,
+        1px -1px 0 white,
+        -1px 1px 0 white,
+        1px 1px 0 white;
+    }
+  </style>
+</head>
+<body>
+  <div class="chessboard" id="board"></div>
+
+  <script>
+    const board = document.getElementById('board');
+
+    const piecesOrder = ['&#9820;', '&#9822;', '&#9821;', '&#9819;', '&#9818;', '&#9821;', '&#9822;', '&#9820;'];
+    const pawn = '&#9823;';
+
+    for (let row = 0; row < 8; row++) {
+      for (let col = 0; col < 8; col++) {
+        const square = document.createElement('div');
+        const isWhiteSquare = (row + col) % 2 === 0;
+        square.className = 'square ' + (isWhiteSquare ? 'white' : 'black');
+
+        let piece = '';
+        let isWhitePiece = false;
+
+        if (row === 0) {
+          piece = piecesOrder[col];
+          isWhitePiece = false; // black pieces on top
+        } else if (row === 1) {
+          piece = pawn;
+          isWhitePiece = false;
+        } else if (row === 6) {
+          piece = pawn;
+          isWhitePiece = true;  
+        } else if (row === 7) {
+          piece = piecesOrder[col];
+          isWhitePiece = true;          }
+
+        if (piece) {
+          square.innerHTML = piece;
+          square.classList.add(isWhitePiece ? 'white-piece' : 'black-piece');
+
+          // Add a special class if piece color matches square color, for visibility
+          if ((isWhitePiece && isWhiteSquare) || (!isWhitePiece && !isWhiteSquare)) {
+            square.classList.add('outline-piece');
+          }
+        }
+
+        board.appendChild(square);
+      }
+    }
+  </script>
+</body>
+</html>
