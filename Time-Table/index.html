@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Timetable</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        padding: 20px;
+      }
+      table {
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid black;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 10px;
+      }
+      .header-title {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .lunch-break {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        text-align: center;
+        vertical-align: middle;
+        font-weight: bold;
+        background-color: #d9e2f3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-title">
+      <h5>CHAITANYA BHARATHI INSTITUTE OF TECHNOLOGY(CBIT)</h5>
+      <h6 style="color: red">Department of Information Technology</h6>
+      <p>
+        Class Time Table for the AY 2025-26 V Semester<br />
+        W.E.F: 16/07/2025<br />
+        Class: BE - V Semester IT-2 &nbsp;&nbsp; Room No: L-306
+      </p>
+    </div>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Day/Time</th>
+          <th>9:10 – 10:10</th>
+          <th>10:10 – 11:10</th>
+          <th>11:15 – 12:15</th>
+          <th>12:15-1:00</th>
+          <th>1:00 – 2:00</th>
+          <th>2:00 – 3:00</th>
+          <th>3:05 – 4:05</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>MONDAY</td>
+          <td>EAD</td>
+          <td>SE</td>
+          <td>EAD LAB (B1)/ CN LAB (B2)</td>
+          <td rowspan="7" class="lunch-break">Lunch Break</td>
+          <td>EAD LAB (B1)/ CN LAB (B2)</td>
+          <td>PE-2</td>
+          <td>CN</td>
+        </tr>
+        <tr>
+          <td>TUESDAY</td>
+          <td>CN</td>
+          <td>EAD</td>
+          <td>ML</td>
+          <td>FLAT</td>
+          <td colspan="2">ML LAB (B1)/ CT LAB (B2)</td>
+        </tr>
+        <tr>
+          <td>WEDNESDAY</td>
+          <td>PE-2</td>
+          <td>FLAT</td>
+          <td>ML</td>
+          <td>SE</td>
+          <td colspan="2">CC LAB (B1)/ SPORTS (B2)</td>
+        </tr>
+        <tr>
+          <td>THURSDAY</td>
+          <td colspan="2">ML LAB (B2)/ CT LAB (B1)</td>
+          <td>CN</td>
+          <td>EAD</td>
+          <td colspan="2">CC (B2)/ SPORTS (B1)</td>
+        </tr>
+        <tr>
+          <td>FRIDAY</td>
+          <td>SE</td>
+          <td>ML</td>
+          <td>FLAT</td>
+          <td>PE-2</td>
+          <td colspan="2">CN lab(B1)/EAD lab(B2)</td>
+        </tr>
+        <tr>
+          <td>SATURDAY</td>
+          <td>MENTORING</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
